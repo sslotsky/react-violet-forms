@@ -1,20 +1,37 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import CodeMirror from 'react-codemirror'
+import 'codemirror/mode/jsx/jsx'
 
-import ReduxForm from './ReduxForm'
+import SignUp from './SignUp'
 import * as actions from './actions'
+
+import signUpCode from 'raw!../codeSamples/SignUp.txt'
+
+const config = {
+  mode: 'javascript',
+  theme: 'erlang-dark',
+  readOnly: true
+}
 
 export class App extends Component {
   render() {
     const { submit, saving } = this.props
 
     return (
-      <div>
-        <h1>Hello world!</h1>
-        <ReduxForm
-          onSubmit={submit}
-          saving={saving}
-        />
+      <div className="soft">
+        <h1>Signup Form</h1>
+        <div className="row">
+          <div className="col-1">
+            <SignUp
+              onSubmit={submit}
+              saving={saving}
+            />
+          </div>
+          <div className="col-1 right">
+            <CodeMirror options={config} value={signUpCode} />
+          </div>
+        </div>
       </div>
     )
   }

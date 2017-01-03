@@ -1,0 +1,19 @@
+@import '../node_modules/codemirror/theme/erlang-dark.css';
+@import '../node_modules/codemirror/lib/codemirror.css';
+
+
+.col-1 {
+  margin: 1rem;
+  &.right {
+    width: 50%;
+  }
+}
+
+.CodeMirror {
+  padding: 1rem;
+  height: auto;
+
+  pre {
+    box-shadow: none;
+  }
+}
