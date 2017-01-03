@@ -2,6 +2,7 @@ import React from 'react'
 import { reduxForm, Field } from 'redux-form'
 import { FormInput, Save } from 'react-violet-forms'
 import { validator } from 'validate-this'
+import { I18n } from 'react-redux-i18n'
 
 export function ReduxForm(props) {
   return (
@@ -21,7 +22,7 @@ function validate(values) {
   return validator(values, v => {
     v.validate('username', 'email', 'password', 'confirm').required()
     v.validate('confirm').matches('password')
-  })
+  }, (message, field) => I18n.t(`forms.newUser.${field}.${message}`))
 }
 
 export default reduxForm({

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import classnames from 'classnames'
 
 export default function FormInput({
   label,
@@ -7,12 +6,15 @@ export default function FormInput({
   meta: { touched, error },
   type = 'text'
 }) {
-  const classes = classnames('form-group', { error: touched && error })
+  const errors = touched && error && error.map((e, i) => (
+    <p className="error" key={i}>{e}</p>
+  ))
 
   return (
-    <div className={classes}>
+    <div className="form-group">
       <label htmlFor={input.name}>{label}</label>
       <input {...input} type={type} />
+      {errors}
     </div>
   )
 }
