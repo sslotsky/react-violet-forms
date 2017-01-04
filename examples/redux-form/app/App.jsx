@@ -20,7 +20,7 @@ export class App extends Component {
 
     return (
       <div className="soft">
-        <h1>Signup Form</h1>
+        <h1 className="soft-quarter">Signup Form</h1>
         <div className="row">
           <div className="col-1">
             <SignUp

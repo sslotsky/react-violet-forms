@@ -4,7 +4,8 @@
   "description": "A bare-bones React app built with Webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors -w"
+    "start": "webpack-dev-server --progress --colors -w",
+    "build": "webpack ./index.js"
   },
   "author": "Sam Slotsky",
   "license": "MIT",
