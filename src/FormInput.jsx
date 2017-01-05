@@ -1,21 +1,16 @@
 import React, { PropTypes } from 'react'
+import formField from './FormField'
 
-export default function FormInput({
+export function FormInput({
   label,
   input,
-  meta: { touched, error },
   type = 'text'
 }) {
-  const errors = touched && error && error.map((e, i) => (
-    <p className="error" key={i}>{e}</p>
-  ))
-
   return (
-    <div className="form-group">
+    <section>
       <label htmlFor={input.name}>{label}</label>
       <input {...input} type={type} />
-      {errors}
-    </div>
+    </section>
   )
 }
 
@@ -26,10 +21,7 @@ FormInput.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
   }).isRequired,
-  meta: PropTypes.shape({
-    touched: PropTypes.bool,
-    error: PropTypes.arrayOf(PropTypes.string)
-  }),
   type: PropTypes.string
 }
 
+export default formField()(FormInput)

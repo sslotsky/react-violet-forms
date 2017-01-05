@@ -10,18 +10,16 @@ export default function Radio({
   const update = e => onChange(e.target.value)
 
   return (
-    <div className="form-group radio">
-      <label>
-        <input
-          type="radio"
-          {...rest}
-          value={val}
-          checked={checked}
-          onChange={update}
-        />
-        {label}
-      </label>
-    </div>
+    <label>
+      <input
+        type="radio"
+        {...rest}
+        value={val}
+        checked={checked}
+        onChange={update}
+      />
+      {label}
+    </label>
   )
 }
 
