@@ -3,7 +3,7 @@ import Radio from './Radio'
 import formField from './FormField'
 import { RADIO } from './fieldTypes'
 
-export function RadioGroup({ options, meta, ...rest }) {
+export function RadioGroup({ options, ...rest }) {
   const group = Object.keys(options).map((val, i) =>
     <Radio {...rest} label={options[val]} val={val} key={i} />
   )

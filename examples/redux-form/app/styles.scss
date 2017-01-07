@@ -17,3 +17,7 @@
     box-shadow: none;
   }
 }
+
+.form-group p.error + p.error {
+  margin-top: 0;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
-import { FormInput, RadioGroup, Save } from 'react-violet-forms'
+import { FormInput, RadioGroup, Checkbox, Save } from 'react-violet-forms'
 import { validator } from 'validate-this'
 import { I18n } from 'react-redux-i18n'
 
@@ -11,7 +11,7 @@ export function SignUp(props) {
         <Field name="username" component={FormInput} label="Username" />
         <Field name="password" component={FormInput} label="Password" type="password" />
         <Field name="confirm" component={FormInput} label="Confirm Password" type="password" />
-        <Field name="color" component={RadioGroup} options={{ blue: 'Blue', red: 'Red' }} />
+        <Field name="sameAsShipping" component={Checkbox} label="Same As Shipping" />
         <Save {...props} />
       </form>
     </div>
