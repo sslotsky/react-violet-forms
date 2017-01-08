@@ -10,6 +10,10 @@ import orderFormCode from 'raw!./OrderForm.txt'
 export function OrderForm({ submit, saving }) {
   const props = {
     onSubmit: submit,
+    initialValues: {
+      shipping: {},
+      billing: {}
+    },
     saving
   }
 

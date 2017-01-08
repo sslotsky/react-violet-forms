@@ -4,7 +4,7 @@ import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/jsx/jsx'
 
 const config = {
-  mode: 'javascript',
+  mode: 'jsx',
   theme: 'erlang-dark',
   readOnly: true
 }

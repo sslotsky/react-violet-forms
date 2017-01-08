@@ -33,7 +33,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "validate-this": "^1.1.1",
+    "validate-this": "^1.2.2",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
