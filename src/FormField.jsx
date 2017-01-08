@@ -3,6 +3,8 @@ import classnames from 'classnames'
 import * as fieldTypes from './fieldTypes'
 
 export function FormField({
+  id,
+  label,
   children,
   meta: { touched, error },
   type
@@ -16,9 +18,13 @@ export function FormField({
   }[type]
 
   const classes = classnames('form-group', customClass)
+  const fieldLabel = label && (
+    <label htmlFor={id}>{label}</label>
+  )
 
   return (
     <div className={classes}>
+      {fieldLabel}
       {children}
       {errors}
     </div>
@@ -36,8 +42,8 @@ FormField.propTypes = {
 export default function formField(config = {}) {
   const { type = fieldTypes.INPUT } = config
   return Component => props => (
-    <FormField {...props} type={type}>
-      <Component {...props} />
+    <FormField {...props} id={props.input.name} type={type}>
+      <Component {...props} id={props.input.name} />
     </FormField>
   )
 }

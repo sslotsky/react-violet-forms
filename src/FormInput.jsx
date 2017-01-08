@@ -2,15 +2,13 @@ import React, { PropTypes } from 'react'
 import formField from './FormField'
 
 export function FormInput({
+  id,
   label,
   input,
   type = 'text'
 }) {
   return (
-    <section>
-      <label htmlFor={input.name}>{label}</label>
-      <input {...input} type={type} />
-    </section>
+    <input {...input} id={id} type={type} />
   )
 }
 

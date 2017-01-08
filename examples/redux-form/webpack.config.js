@@ -17,6 +17,9 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loaders: ["style", "css", "sass"]
+    }, {
+      test: /\.json/,
+      loader: 'json'
     }]
   },
   devServer: {
