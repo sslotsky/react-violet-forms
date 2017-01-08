@@ -1,6 +1,7 @@
 import React from 'react'
 import { reduxForm, Field, Fields } from 'redux-form'
 import { FormInput, CheckboxGroup, RadioGroup, Select, Save } from 'react-violet-forms'
+import { validator } from 'validate-this'
 
 const item = (value, text) => ({ value, text })
 
@@ -14,6 +15,17 @@ const drinks = [
   item('beer', 'Beer')
 ]
 
+function hasTimeForNewInterest(_, values) {
+  const { likesMusic, likesChess, likesCoding } = values
+  const interests = [likesMusic, likesChess, likesCoding]
+
+  const tooManyInterests = interests.filter(i => i).length > 2
+
+  if (tooManyInterests) {
+    return 'Please select no more than 2 interests'
+  }
+}
+
 export function Form(props) {
   const renderInterests = ({ likesMusic, likesChess, likesCoding }) => {
     const addLabel = (field, label) => ({ ...field, label })
@@ -23,9 +35,13 @@ export function Form(props) {
       addLabel(likesCoding, 'coding?')
     ]
 
-    const values = [likesMusic.input.value, likesChess.input.value, likesCoding.input.value]
-    const tooManyInterests = values.filter(v => v).length > 2
-    const error = tooManyInterests && 'Please select no more than 2 interests'
+    const values = {
+      likesMusic: likesMusic.input.value,
+      likesCoding: likesCoding.input.value,
+      likesChess: likesChess.input.value
+    }
+
+    const error = hasTimeForNewInterest(undefined, values)
 
     return (
       <CheckboxGroup fields={fields} error={error} />
@@ -59,8 +75,15 @@ export function Form(props) {
   )
 }
 
+function validate(values) {
+  return validator(values, v => {
+    v.validate('likesMusic', 'likesCoding', 'likesChess').satisfies(hasTimeForNewInterest)
+  })
+}
+
 export default reduxForm({
-  form: 'hodgePodge'
+  form: 'hodgePodge',
+  validate
 })(Form)
 
 
