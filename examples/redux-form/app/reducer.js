@@ -19,5 +19,5 @@ function reducer(state = initialState, action) {
 export default combineReducers({
   i18n,
   form,
-  user: reducer
+  app: reducer
 })

@@ -1,13 +1,13 @@
 import { SUBMIT, SUCCESS } from './reducer'
 import { reset } from 'redux-form'
 
-export function submit() {
-  return dispatch => {
+export function submit(form) {
+  return () => dispatch => {
     dispatch({ type: SUBMIT })
     return Promise.resolve().then(() => {
       setTimeout(() => {
         dispatch({ type: SUCCESS })
-        dispatch(reset('newUser'))
+        dispatch(reset(form))
       }, 1500)
     })
   }

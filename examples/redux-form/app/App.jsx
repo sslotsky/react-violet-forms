@@ -1,43 +1,37 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import CodeMirror from 'react-codemirror'
-import 'codemirror/mode/jsx/jsx'
-
 import SignUp from './SignUp'
-import * as actions from './actions'
+import OrderForm from './OrderForm'
 
-import signUpCode from 'raw!../codeSamples/SignUp.txt'
-
-const config = {
-  mode: 'javascript',
-  theme: 'erlang-dark',
-  readOnly: true
+const componentMap = {
+  1: SignUp,
+  2: OrderForm
 }
 
-export class App extends Component {
+export default class App extends Component {
+  state = {
+    page: 1
+  };
+
   render() {
     const { submit, saving } = this.props
+    const { page } = this.state
+    const next = () => this.setState({
+      page: page + 1
+    })
 
+    const prev = () => this.setState({
+      page: page - 1
+    })
+
+    const Example = componentMap[page];
     return (
       <div className="soft">
-        <h1 className="soft-quarter">Signup Form</h1>
-        <div className="row">
-          <div className="col-1">
-            <SignUp
-              onSubmit={submit}
-              saving={saving}
-            />
-          </div>
-          <div className="col-1 right">
-            <CodeMirror options={config} value={signUpCode} />
-          </div>
-        </div>
+        <ul className="pagination">
+          <li><button onClick={prev} disabled={page === 1}>&lt;</button></li>
+          <li><button onClick={next} disabled={page === 2}>&gt;</button></li>
+        </ul>
+        <Example />
       </div>
     )
   }
 }
-
-export default connect(
-  state => state.user,
-  { submit: actions.submit })
-(App)

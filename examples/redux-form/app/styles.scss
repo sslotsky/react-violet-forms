@@ -21,3 +21,11 @@
 .form-group p.error + p.error {
   margin-top: 0;
 }
+
+ul.pagination {
+  li {
+    &:hover button:not([disabled]) {
+      background-color: #7e69c6;
+    }
+  }
+}
