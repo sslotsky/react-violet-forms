@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import SignUp from './SignUp'
 import OrderForm from './OrderForm'
+import HodgePodge from './HodgePodge'
 
 const componentMap = {
   1: SignUp,
-  2: OrderForm
+  2: OrderForm,
+  3: HodgePodge
 }
 
 export default class App extends Component {
@@ -28,7 +30,7 @@ export default class App extends Component {
       <div className="soft">
         <ul className="pagination">
           <li><button onClick={prev} disabled={page === 1}>&lt;</button></li>
-          <li><button onClick={next} disabled={page === 2}>&gt;</button></li>
+          <li><button onClick={next} disabled={page === 3}>&gt;</button></li>
         </ul>
         <Example />
       </div>
