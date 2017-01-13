@@ -1,14 +1,21 @@
-import { SUBMIT, SUCCESS } from './reducer'
-import { reset } from 'redux-form'
+let idSeq = 1
 
-export function submit(form) {
-  return () => dispatch => {
-    dispatch({ type: SUBMIT })
-    return Promise.resolve().then(() => {
-      setTimeout(() => {
-        dispatch({ type: SUCCESS })
-        dispatch(reset(form))
-      }, 1500)
-    })
+export function create(data) {
+  return {
+    ...data,
+    id: ++idSeq
+  }
+}
+
+export function submit(data) {
+  return dispatch => {
+    const notifications = data.notifications.filter(n => !n.id).map(create)
+
+    return Promise.resolve(
+      dispatch({
+        type: 'CONCAT',
+        notifications
+      })
+    )
   }
 }
