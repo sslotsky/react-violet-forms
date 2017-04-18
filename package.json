@@ -1,6 +1,6 @@
 {
   "name": "react-violet-forms",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "React form components built for use with the violet css framework. Works well with redux-form.",
   "main": "lib/index.js",
   "scripts": {
