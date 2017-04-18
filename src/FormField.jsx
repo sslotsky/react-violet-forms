@@ -37,7 +37,7 @@ FormField.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string,
   input: PropTypes.shape({
-    value: PropTypes.oneOf([
+    value: PropTypes.oneOfType([
       PropTypes.string, PropTypes.bool, PropTypes.number
     ]),
     onChange: PropTypes.func.isRequired
