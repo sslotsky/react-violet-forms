@@ -1,14 +1,15 @@
-import React, { PropTypes } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function CheckboxGroup({ fields, label, error = undefined }) {
   const renderCheckbox = (field, i) => (
     <label key={i}>
-      <input type="checkbox" {...field.input} checked={!!field.input.value} />
+      <input type="checkbox" {...field.input} checked={field.input.value} />
       {field.label}
     </label>
-  )
+  );
 
-  const notice = error && <p className="error">{error}</p>
+  const notice = error && <p className="error">{error}</p>;
 
   return (
     <div className="form-group checkbox">
@@ -18,3 +19,13 @@ export default function CheckboxGroup({ fields, label, error = undefined }) {
   );
 }
 
+CheckboxGroup.propTypes = {
+  error: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.bool,
+      onChange: PropTypes.func.isRequired
+    })
+  )
+};

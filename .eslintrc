@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": "true"
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "rules": {
+    "import/prefer-default-export": ["off"],
+    "import/no-named-as-default": ["off"],
+    "new-cap": [2, { "capIsNewExceptions": ["List", "Map", "Set"] }],
+    "comma-dangle": [2, "never"],
+    "no-constant-condition": ["off"],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],
+    "jsx-a11y/label-has-for": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
+}
+
+

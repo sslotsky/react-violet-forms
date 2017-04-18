@@ -1,2 +1,2 @@
-export const RADIO = 'fieldTypes/RADIO'
-export const INPUT = 'fieldTypes/INPUT'
+export const RADIO = 'fieldTypes/RADIO';
+export const INPUT = 'fieldTypes/INPUT';

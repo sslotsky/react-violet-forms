@@ -1,13 +1,13 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 
 export default function Radio({
   input,
   val,
   label
 }) {
-  const { value, onChange, ...rest } = input
-  const checked = value === val
-  const update = e => onChange(e.target.value)
+  const { value, onChange, ...rest } = input;
+  const checked = value === val;
+  const update = e => onChange(e.target.value);
 
   return (
     <label>
@@ -20,7 +20,7 @@ export default function Radio({
       />
       {label}
     </label>
-  )
+  );
 }
 
 Radio.propTypes = {
@@ -30,4 +30,4 @@ Radio.propTypes = {
     onChange: PropTypes.func.isRequired
   }),
   val: PropTypes.string.isRequired
-}
+};
